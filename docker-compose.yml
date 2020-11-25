@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+
+  app:
+    build: .
+    command: npm start
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/REST-Compose
